@@ -84,7 +84,7 @@ int main()
     fclose(f3);
     fclose(f4);
 
-    int bits = 7;
+    int bits = 8;
     export_seq_as_ascii_bits(seq, SAMPLE_SIZE, bits, "random_seq_ascii_bits.txt");
 
     return 0;

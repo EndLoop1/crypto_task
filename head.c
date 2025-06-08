@@ -189,8 +189,7 @@ double Chi_Square_P_Value(double chi_square_stat, int df)
 void export_seq_as_ascii_bits(const int seq[], int size, int bits, const char *filename) 
 {
     FILE *fp = fopen(filename, "w");
-    if (!fp) 
-    {
+    if (!fp) {
         perror("打开文件失败");
         return;
     }
