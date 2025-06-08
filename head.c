@@ -185,3 +185,24 @@ double Chi_Square_P_Value(double chi_square_stat, int df)
         return gamma_q_contfrac(a, x);
     }
 }
+
+void export_seq_as_ascii_bits(const int seq[], int size, int bits, const char *filename) 
+{
+    FILE *fp = fopen(filename, "w");
+    if (!fp) 
+    {
+        perror("打开文件失败");
+        return;
+    }
+    for (int i = 0; i < size; i++) 
+    {
+        int num = seq[i];
+        for (int b = bits - 1; b >= 0; b--) 
+        {
+            char bit_char = ((num >> b) & 1) ? '1' : '0';
+            fputc(bit_char, fp);
+        }
+    }
+    fclose(fp);
+    printf("二进制ASCII码序列已写入文件:%s\n", filename);
+}

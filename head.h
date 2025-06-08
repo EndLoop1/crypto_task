@@ -25,4 +25,6 @@ double Autocorrelation(); //自相关函数
 int Freedom_Degrees(int n); //计算自由度
 double Chi_Square_P_Value(double chi_square_stat, int df); // 卡方分布的p值计算
 
-#endif 
+void export_seq_as_ascii_bits(const int seq[], int size, int bits, const char *filename); //导出二进制数据，便于使用工具箱
+
+#endif

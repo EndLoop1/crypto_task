@@ -9,7 +9,9 @@ int main()
     for (i = 0; i < N; i++)  pos[i] = -1;
     for (i = 0; i < SAMPLE_SIZE; i++) 
     {
-        x = rand() % N;
+        //x = rand() % N;
+        x = rand_normal(50.0, 10.0);
+        //x= rand_uniform(N);
         seq[i] = x;
         histogram[x]++;
         if (pos[x] != -1) 
@@ -54,6 +56,7 @@ int main()
     {
         printf("结论：序列存在自相关，随机性可能不足\n");
     }
+    printf("\n");
 
     // 导出 .csv
     FILE* f1 = fopen("histogram.csv", "w");
@@ -80,6 +83,9 @@ int main()
     fclose(f2);
     fclose(f3);
     fclose(f4);
+
+    int bits = 7;
+    export_seq_as_ascii_bits(seq, SAMPLE_SIZE, bits, "random_seq_ascii_bits.txt");
 
     return 0;
 }
